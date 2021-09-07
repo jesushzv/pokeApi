@@ -1,2 +1,3 @@
 //Formatear peso con punto decimal en peso y estatura
-//
+//Hacerlo responsivo
+//Formatear texto de data de cada pokemon

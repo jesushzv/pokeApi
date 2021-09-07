@@ -1,7 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: yellow;
+    background-color:#ffcb05;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
 }
 
 .logo img {
@@ -12,24 +14,61 @@ body {
 }
 
 .main {
+    padding: 5px;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto ;
     justify-content: space-evenly;
     align-content: center;
-
-    
-    
+    text-align: center;
 }
 
-.instructions p {
-    margin-left: 40px;
-    font-size: 18px;
-    
+.pokemon {
+    box-sizing: content-box;
+    padding: 4px;
+    width: 100%;
+    border: solid white 10px;
+    background: #2a75bb;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+
+
+.instructions h2 {
+    font-size: 20px;
+}
+
+.instructions img {
+    max-width: 150px;
+}
+
+.instructions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.steps {
+    font-size: 16px;
+}
+
+input {
+    margin-left: 49px;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    padding: 9px;
+}
+
+input::placeholder{
+    font-family:  'Press Start 2P', cursive;
+}
+
+input:hover{
+    opacity: 0.9;
 }
 
 h1 {
-    font-size: 1.5rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffcb05;
 }
 
 h1:hover {
@@ -38,9 +77,9 @@ h1:hover {
 }
 
 p {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    margin-left: 105px;
+    color: rgb(255, 255, 255);
 
 }
 

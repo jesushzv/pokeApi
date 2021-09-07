@@ -6,34 +6,37 @@ window.onload = async function () {
     let pokemon = await fetch(link).then((e) => e.json());
 
     //Div that will contain the specific pokemon
-    $(".main").append(`<div id='${pokemon.name}'>
+    $(".main").append(`<div class="pokemon" id='${pokemon.name}'>
      </div>`);
 
-     
-     //Name
-     $(`div#${pokemon.name}`).append(`<h1 class='toggle ${pokemon.name}'>${pokemon.name}</h1>`);
-     
-     //Image
-     $(`div#${pokemon.name}`).append(`<img src=${pokemon.sprites.front_default}>`);
-     
-     //ID
-     $(`div#${pokemon.name}`).append(`<p> <strong> ID: </strong> ${pokemon.id}</p>`);
-     
-     
-     
-     
-     
-     //Div that will contain the hidden content
-     $(`div#${pokemon.name}`).append(`<div class='hidden ${pokemon.name}'></div>`)
-    
-     //Hide content
+    //Name
+    var name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+    $(`div#${pokemon.name}`).append(
+      `<h1 class='toggle ${pokemon.name}'>${name}</h1>`
+    );
+
+    //Image
+    $(`div#${pokemon.name}`).append(
+      `<img src=${pokemon.sprites.front_default}>`
+    );
+
+    //ID
+    $(`div#${pokemon.name}`).append(
+      `<p> <strong> ID: </strong> ${pokemon.id}</p>`
+    );
+
+    //Div that will contain the hidden content
+    $(`div#${pokemon.name}`).append(
+      `<div class='hidden ${pokemon.name}'></div>`
+    );
+
+    //Hide content
     $(`.hidden.${pokemon.name}`).hide();
 
-
     //Show content
-    $(`h1.toggle.${pokemon.name}`).click(()=>{
+    $(`h1.toggle.${pokemon.name}`).click(() => {
       $(`.hidden.${pokemon.name}`).toggle();
-    })
+    });
 
     //Abilities
     $(`.hidden.${pokemon.name}`).append(
@@ -74,23 +77,17 @@ window.onload = async function () {
   }
 };
 
-/* $(".get").click(async () => {
-  let url = "https://pokeapi.co/api/v2/pokemon/1";
-  const pokemon = await fetch(url).then((e) => e.json());
+$(".search").keyup(() => {
 
-  console.log(pokemon)
+  var value = $(".search").val().toLowerCase()
 
-  $('.main').append(`<p> <strong> Name: </strong> ${pokemon.name}</p>`)
-
-  $('.main').append(`<strong>Types</strong>`)
-
-
-
-  $('.main').append(`<strong>Stats</strong>`)
-
-  pokemon['stats'].map((e)=>{
-    $('.main').append(`<p> <strong> ${e.stat.name}:</strong> ${e.base_stat} </p>`)
+  $(".main").children('.pokemon').each((index,element)=>{
+    if(!$(element).attr('id').startsWith(value)){
+      $(element).hide();
+    }
+    else{
+      $(element).show();
+    }
+    
   })
-
- 
-}); */
+});
